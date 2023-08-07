@@ -1,0 +1,36 @@
+# Setup new typescript
+- **TypeScript - tsc command**: 
+  - yarn add -D typescript
+- **Install ambient Node.js types for TypeScript**:
+  - yarn add -D @types/node 
+- **Create a tsconfig.json**: 
+  - npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true
+- **Cold reloading**: 
+  - yarn add -D ts-node nodemon
+  - add nodemon.json 
+- **Rimraf (rm -rf)**
+  - yarn add -D rimraf
+- **Scripts**: 
+  - "start:dev": "npx nodemon",
+  - "build": "rimraf ./build && tsc",
+  - "start": "npm run build && node build/index.js"
+# ESLint
+- **Installation and setup**
+  - yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+  - touch .eslintrc
+- **Ignoring files**
+  - touch .eslintignore
+- **Adding a lint script**
+  - add a lint script in package.json
+  - yarn lint
+  - npm install node-fetch@2.6.7
+  - npm install --save-dev @types/node-fetch@2.x
+- **Rules**
+  - "off" means 0 (turns the rule off completely)
+  - "warn" means 1 (turns the rule on but won't make the linter fail)
+  - "error" means 2 (turns the rule on and will make the linter fail)
+  - add "rules": { } in .eslintrc
+- **plugin**
+- **Extending a different base config**
+- **Fixing linted**
+  - add "lint-and-fix": "eslint . --ext .ts --fix" to scripts
