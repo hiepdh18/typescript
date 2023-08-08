@@ -3,13 +3,12 @@ import * as _ from 'lodash';
 import 'reflect-metadata';
 import { deepFind } from '../utils/utils';
 
-const symbolFromMap = Symbol('SymbolFromMap'); 
+const symbolFromMap = Symbol('SymbolFromMap');
 
 export const SIMPLE_MAPPER_FN: MapperFunction = (val) => val;
 
-export const getFromFn =
-  (propKey: string) => (model: any, prop: string) =>
-    deepFind(model, propKey || prop); 
+export const getFromFn = (propKey: string) => (model: any, prop: string) =>
+  deepFind(model, propKey || prop);
 
 /* Map a value from the `data` object based on the provided `prop` key. */
 export type MapperFunction<A = any, B = any> = (data: A, prop: string) => B;

@@ -1,9 +1,7 @@
 import _ from 'lodash';
 
 export const isDevEnv = (): boolean => {
-  return (
-    process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test'
-  );
+  return process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 };
 
 export function getRandomInt(min: number, max: number) {
@@ -16,8 +14,7 @@ export function getRandomFloat(min: number, max: number) {
 
 export const randomStr = (length: number) => {
   let text = '';
-  const possible =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   for (let i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
@@ -27,8 +24,11 @@ export const randomStr = (length: number) => {
 export const randomInt = (length: number) => {
   let text = '';
   const possible = '0123456789';
+  const possible1 = '123456789';
   for (let i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
+    if (i === 0) text += possible1.charAt(Math.floor(Math.random() * possible1.length));
+    else
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return +text;
 };
@@ -37,15 +37,12 @@ export const context = (ctx: any) => {
   const { req, connection } = ctx;
   return connection
     ? {
-      req: {
-        headers: _.transform(
-          connection.context,
-          (result: any, val: any, key: string) => {
+        req: {
+          headers: _.transform(connection.context, (result: any, val: any, key: string) => {
             result[key.toLowerCase()] = val;
-          },
-        ),
-      },
-    }
+          }),
+        },
+      }
     : { req };
 };
 
@@ -54,7 +51,7 @@ export function randomIntFromInterval(min: number, max: number) {
 }
 
 export function replaceAllNonDigits(theString: string) {
-  const theNumber = Number(theString.replace(/^\D+/g, '').trim());
+  const theNumber = Number(theString.replace(/[^0-9]+/g, '').trim());
   return isNaN(theNumber) ? 0 : theNumber;
 }
 
