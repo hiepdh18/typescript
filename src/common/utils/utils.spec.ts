@@ -12,6 +12,11 @@ import {
   isEmpty,
 } from './utils';
 
+beforeAll(() => {});
+afterAll(() => {});
+beforeEach(() => {});
+afterEach(() => {});
+
 describe('Utils functions', () => {
   test('It should return true', () => {
     expect(isDevEnv()).toBe(true);

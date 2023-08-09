@@ -42,8 +42,11 @@
     "*.config.js"
   ],
   "dependencies": {
+    "dayjs": "^1.11.3",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.7",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "winston": "^3.10.0",
+    "winston-daily-rotate-file": "^4.7.1"
   }
 }

@@ -27,8 +27,7 @@ export const randomInt = (length: number) => {
   const possible1 = '123456789';
   for (let i = 0; i < length; i++) {
     if (i === 0) text += possible1.charAt(Math.floor(Math.random() * possible1.length));
-    else
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    else text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return +text;
 };
