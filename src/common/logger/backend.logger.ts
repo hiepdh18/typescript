@@ -12,11 +12,9 @@ const formatter = (info: any) => {
   // const user = SessionMiddleware.get(SESSION_USER);
   // const email = user ? user.email : '-';
   // return `${chalk.magentaBright()}  [${info.level}] [${chalk.green(info.context)}] ${info.message}`;
-  return `${dayjs(info.timestamp).format(
-    'YYYY/MM/DD - hh:mm:ss A',
-  )} ${chalk.magentaBright()} hiepdh18@gmail.com [${info.level}] [${chalk.green(info.context)}] ${
-    info.message
-  }`;
+  return `${dayjs(info.timestamp).format('YYYY/MM/DD - hh:mm:ss A')} hiepdh18@gmail.com [${
+    info.level
+  }] [${info.context}] ${info.message}`;
   //  return `${dayjs(info.timestamp).format('YYYY/MM/DD - hh:mm:ss A')} ${chalk.magentaBright(
   //    requestId,
   //  )} ${email} [${info.level}] [${chalk.green(info.context)}] ${info.message}`;
@@ -102,7 +100,7 @@ export class BackendLogger {
   log(message: string) {
     this.winstonLog(message, 'verbose');
     // super.log(message);
-    console.log(message)
+    console.log(message);
   }
 
   warn(message: string) {
@@ -113,6 +111,5 @@ export class BackendLogger {
   error(message: string, trace: string) {
     this.winstonLog(message, 'error', trace);
     // super.error(message, trace);
-
   }
 }
