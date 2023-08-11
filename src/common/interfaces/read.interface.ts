@@ -1,4 +1,6 @@
 export interface IRead<T> {
-  find(item: T): Promise<T[]>;
-  findOne(id: string): Promise<T>;
+  findOneById(id: string | number): Promise<T>;
+  findOne(opts: any): Promise<T>;
+  findAll(opts: any): Promise<T[]>;
+  count(opts: any): Promise<number>;
 }
